@@ -171,23 +171,42 @@ extension DBUtils {
         let groups = mRealm.objects(ConfigurationGroup.self).filter(filter).map({ $0 })
         var objects: [BaseModel] = []
         
-        var iterator1: LazyMapIterator<RLMIterator<Proxy>, Proxy>? = nil
-        iterator1 = proxies.makeIterator()
-        iterator1?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
+        if proxies.count > 0 {
+            for index in 0...proxies.count-1 {
+                objects.append(proxies[index] as BaseModel)
+            }
+        }
         
-        var iterator2: LazyMapIterator<RLMIterator<RuleSet>, RuleSet>? = nil
-        iterator2 = rulesets.makeIterator()
-        iterator2?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
         
-        var iterator3: LazyMapIterator<RLMIterator<ConfigurationGroup>, ConfigurationGroup>? = nil
-        iterator3 = groups.makeIterator()
-        iterator3?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
+//        var iterator1: LazyMapIterator<RLMIterator<Proxy>, Proxy>? = nil
+//        iterator1 = proxies.makeIterator()
+//        iterator1?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
+        
+        if rulesets.count > 0 {
+            for index in 0...rulesets.count-1 {
+                objects.append(rulesets[index] as BaseModel)
+            }
+        }
+        
+//        var iterator2: LazyMapIterator<RLMIterator<RuleSet>, RuleSet>? = nil
+//        iterator2 = rulesets.makeIterator()
+//        iterator2?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
+        
+        if groups.count > 0 {
+            for index in 0...groups.count-1 {
+                objects.append(groups[index] as BaseModel)
+            }
+        }
+        
+//        var iterator3: LazyMapIterator<RLMIterator<ConfigurationGroup>, ConfigurationGroup>? = nil
+//        iterator3 = groups.makeIterator()
+//        iterator3?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
         return objects
     }
 
@@ -199,26 +218,45 @@ extension DBUtils {
         let groups = mRealm.objects(ConfigurationGroup.self).filter(filter).map({ $0 })
         var objects: [BaseModel] = []
         
-        var iterator1: LazyMapIterator<RLMIterator<Proxy>, Proxy>? = nil
-        iterator1 = proxies.makeIterator()
-        iterator1?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
-    
-        var iterator2: LazyMapIterator<RLMIterator<RuleSet>, RuleSet>? = nil
-        iterator2 = rulesets.makeIterator()
-        iterator2?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
+        if proxies.count > 0 {
+            for index in 0...proxies.count-1 {
+                objects.append(proxies[index] as BaseModel)
+            }
+        }
         
-        var iterator3: LazyMapIterator<RLMIterator<ConfigurationGroup>, ConfigurationGroup>? = nil
-        iterator3 = groups.makeIterator()
-        iterator3?.forEach({ (tObj) in
-            objects.append(tObj as BaseModel)
-        })
+//        var iterator1: LazyMapIterator<RLMIterator<Proxy>, Proxy>? = nil
+//        iterator1 = proxies.makeIterator()
+//        iterator1?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
+    
+        if rulesets.count > 0 {
+            for index in 0...rulesets.count-1 {
+                objects.append(rulesets[index] as BaseModel)
+            }
+        }
+        
+//        var iterator2: LazyMapIterator<RLMIterator<RuleSet>, RuleSet>? = nil
+//        iterator2 = rulesets.makeIterator()
+//        iterator2?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
+        
+        if groups.count > 0 {
+            for index in 0...groups.count-1 {
+                objects.append(groups[index] as BaseModel)
+            }
+        }
+        
+//        var iterator3: LazyMapIterator<RLMIterator<ConfigurationGroup>, ConfigurationGroup>? = nil
+//        iterator3 = groups.makeIterator()
+//        iterator3?.forEach({ (tObj) in
+//            objects.append(tObj as BaseModel)
+//        })
         return objects
     }
 }
+
 
 // BaseModel API
 extension BaseModel {
